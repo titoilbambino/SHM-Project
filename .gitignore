@@ -7,3 +7,7 @@ __pycache__/
 .ipynb_checkpoints/
 .venv/
 venv/
+
+# Experiment outputs
+results/
+references/

@@ -1,0 +1,27 @@
+data:
+  path: data/data_100Hz.h5
+  target: SB01_x
+  target_unit: MPa
+  target_highpass: {cutoff_hz: 0.1, order: 2}
+  sample_rate_hz: 100
+  feature_count: 75
+  train: [MVS_P1_UDS_SM_Y_02, MVS_P1_UDS_SM_Z_02, MVS_P2_UDS_SM_Y_02, MVS_P2_UDS_SM_Z_02]
+  test: [MVS_P1_UDS_SM_Y_01, MVS_P1_UDS_SM_Z_01, MVS_P2_UDS_SM_Y_01, MVS_P2_UDS_SM_Z_01]
+windows:
+  length: 500
+  train_stride: 1
+  evaluation_stride: 125
+model:
+  channels: 16
+  kernel_size: 5
+  dilations: [1, 2, 4, 8, 16, 32, 64, 128]
+  pool_after: []
+  pool_size: 2
+training:
+  device: mps
+  seed: 0
+  batch_size: 512
+  learning_rate: 0.001
+  max_epochs: 200
+  validation_checks_per_epoch: 8
+  patience_checks: 20

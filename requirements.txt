@@ -1,8 +1,10 @@
 numpy
+scipy
 pandas
 matplotlib
 h5py
 scikit-learn
 torch
-keras>=3
+keras>=3.15.1
+PyYAML>=6
 jupyter
